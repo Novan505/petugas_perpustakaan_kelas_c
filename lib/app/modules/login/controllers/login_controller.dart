@@ -41,6 +41,7 @@ class LoginController extends GetxController {
                 {"username": usernameController.text.toString(),
                   "password": passwordController.text.toString()}));
         if (response.statusCode == 200) {
+          Get.snackbar("Success", "Login Success", backgroundColor: Colors.green);
           await StorageProvider.write(StorageKey.status, "logged");
           Get.offAllNamed(Routes.HOME);
         } else {

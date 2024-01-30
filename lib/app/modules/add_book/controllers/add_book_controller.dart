@@ -49,6 +49,7 @@ class AddBookController extends GetxController {
             }
         );
         if (response.statusCode == 201) {
+          Get.snackbar("Success", "Add Book Success", backgroundColor: Colors.green);
           await StorageProvider.write(StorageKey.status, "logged");
           Get.offAllNamed(Routes.BOOK);
         } else {
