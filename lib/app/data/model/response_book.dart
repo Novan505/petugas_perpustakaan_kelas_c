@@ -2,13 +2,13 @@
 /// message : "success"
 /// data : [{"id":1,"kategori_id":1,"judul":"Belajar mengenal angka","penulis":"kusnaidi","penerbit":"PT alangka","tahun_terbit":2024,"created_at":"2024-01-09T05:43:09.000000Z","updated_at":"2024-01-09T05:43:09.000000Z","kategori":{"id":1,"nama":"umum"}}]
 
-class ResponBook {
-  ResponBook({
+class ResponseBook {
+  ResponseBook({
       this.status, 
       this.message, 
       this.data,});
 
-  ResponBook.fromJson(dynamic json) {
+  ResponseBook.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
     if (json['data'] != null) {
@@ -68,11 +68,11 @@ class DataBook {
     kategori = json['kategori'] != null ? Kategori.fromJson(json['kategori']) : null;
   }
   int? id;
-  int? kategoriId;
+  String? kategoriId;
   String? judul;
   String? penulis;
   String? penerbit;
-  int? tahunTerbit;
+  String? tahunTerbit;
   String? createdAt;
   String? updatedAt;
   Kategori? kategori;

@@ -4,6 +4,7 @@ import 'package:flutter/widgets.dart';
 import 'package:petugas_perpustakaan_kelas_c/app/data/constan/endpoint.dart';
 import 'package:petugas_perpustakaan_kelas_c/app/data/provider/api_provider.dart';
 import 'package:get/get.dart';
+import 'package:petugas_perpustakaan_kelas_c/app/modules/book/controllers/book_controller.dart';
 
 import '../../../data/provider/storage_provider.dart';
 import '../../../routes/app_pages.dart';
@@ -14,11 +15,10 @@ class AddBookController extends GetxController {
   final TextEditingController penulisController = TextEditingController();
   final TextEditingController penerbitController = TextEditingController();
   final TextEditingController tahunterbitController = TextEditingController();
-
-
   final loading = false.obs;
-
   final count = 0.obs;
+  final BookController _bookController = Get.find();
+
   @override
   void onInit() {
     super.onInit();
@@ -49,8 +49,8 @@ class AddBookController extends GetxController {
             }
         );
         if (response.statusCode == 201) {
+          _bookController.getData();
           Get.snackbar("Success", "Add Book Success", backgroundColor: Colors.green);
-          await StorageProvider.write(StorageKey.status, "logged");
           Get.offAllNamed(Routes.BOOK);
         } else {
           Get.snackbar("Sorry", "Login Gagal", backgroundColor: Colors.orange);

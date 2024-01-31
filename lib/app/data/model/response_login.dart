@@ -2,13 +2,13 @@
 /// message : "Login Success"
 /// data : {"id":1,"username":"testing","nama":"Romli","telp":"085334","alamat":"Solo","role":"PETUGAS","created_at":"2024-01-09T01:55:16.000000Z","updated_at":"2024-01-09T01:55:16.000000Z"}
 
-class ResponLogin {
-  ResponLogin({
+class ResponseLogin {
+  ResponseLogin({
       this.status, 
       this.message, 
       this.data,});
 
-  ResponLogin.fromJson(dynamic json) {
+  ResponseLogin.fromJson(dynamic json) {
     status = json['status'];
     message = json['message'];
     data = json['data'] != null ? DataLogin.fromJson(json['data']) : null;
