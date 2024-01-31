@@ -14,7 +14,6 @@ class AddBookController extends GetxController {
   final TextEditingController penerbitController = TextEditingController();
   final TextEditingController tahunterbitController = TextEditingController();
   final loading = false.obs;
-  final count = 0.obs;
   final BookController _bookController = Get.find();
 
   @override
